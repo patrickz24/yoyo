@@ -1,0 +1,2 @@
+id;segment;structure;ville;contact;poste;canal;statut;date_contact;date_entretien;nb_praticiens;nb_sites;logiciel;banque;part_tiers_payant_pct;jours_pointage_mois;montant_plus_90j_eur;outil_actuel_insuffisant;export_possible;audit_paye;intros_obtenues;citation_cle;notes
+EX1;EXEMPLE;Centre dentaire Exemple (ligne ignorée par le script);Lyon;Marie D.;Gestionnaire;telephone;fait;2026-11-20;2026-11-23;6;1;Veasy;Crédit Mutuel;75;3;12000;oui;oui;non;2;"On découvre les rejets mutuelles 2 mois après";Ligne d'exemple : à supprimer ou garder, le script l'ignore
