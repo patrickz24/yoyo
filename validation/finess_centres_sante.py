@@ -2,10 +2,11 @@
 """Extrait les centres de santé du fichier FINESS (open data) pour construire une liste d'appels.
 
 1. Télécharger sur data.gouv.fr le jeu « FINESS Extraction du Fichier des établissements »
-   (fichier etalab-cs1100507-stock-AAAAMMJJ-HHMM.csv, séparateur ';').
+   (fichier etalab-cs1100502 ou etalab-cs1100507-stock-AAAAMMJJ-HHMM.csv).
 2. python3 validation/finess_centres_sante.py <fichier_finess.csv> [--dept 69,75,92] [--sortie centres.csv]
 
-Le format FINESS « structureet » est supposé être celui publié par Etalab (32 colonnes).
+Format (documentation officielle « etalab_cs1100502 ») : ligne 1 = commentaire, puis des lignes
+préfixées « structureet » de 32 colonnes. Le séparateur (tabulation ou ';') est détecté automatiquement.
 Si le format a changé, le script le signale et propose --brut pour sortir les lignes telles quelles.
 """
 import argparse
@@ -30,10 +31,16 @@ def lire_lignes(chemin):
     for encodage in ("utf-8-sig", "latin-1"):
         try:
             with open(chemin, newline="", encoding=encodage) as f:
-                return list(csv.reader(f, delimiter=";"))
+                texte = f.read()
+            break
         except UnicodeDecodeError:
             continue
-    sys.exit("Impossible de lire le fichier (encodage inconnu).")
+    else:
+        sys.exit("Impossible de lire le fichier (encodage inconnu).")
+    # Séparateur : tabulation (documentation officielle) ou ';' (certaines extractions data.gouv.fr)
+    echantillon = [l for l in texte.splitlines()[:50] if l.startswith("structureet")]
+    sep = "\t" if echantillon and echantillon[0].count("\t") > echantillon[0].count(";") else ";"
+    return list(csv.reader(texte.splitlines(), delimiter=sep))
 
 
 def main():
@@ -54,6 +61,14 @@ def main():
         sys.exit(f"Format inattendu ({len(structures[0])} colonnes au lieu de {len(COLONNES)}). "
                  "Relance avec --brut pour obtenir les lignes contenant « centre de santé ».")
 
+    # Codes de catégorie dont le libellé contient « centre de santé » (le libellé peut être vide sur
+    # certaines lignes : on retient alors la ligne grâce à son code).
+    codes_cds = {}
+    if format_ok:
+        for l in structures:
+            if MOTIF.search(l[IDX["libcategetab"]] or ""):
+                codes_cds[l[IDX["categetab"]].strip()] = l[IDX["libcategetab"]].strip()
+
     retenus = []
     for l in structures:
         if args.brut or not format_ok:
@@ -61,7 +76,7 @@ def main():
                 retenus.append(l)
             continue
         get = lambda nom: l[IDX[nom]].strip() if IDX[nom] < len(l) else ""
-        if not MOTIF.search(get("libcategetab")):
+        if get("categetab") not in codes_cds:
             continue
         if depts and get("departement").zfill(2) not in depts:
             continue
@@ -69,7 +84,7 @@ def main():
         retenus.append([
             get("nofinesset"), get("rslongue") or get("rs"), adresse, get("ligneacheminement"),
             get("libdepartement") or get("departement"), get("telephone"),
-            get("libcategetab"), get("siret"), "a_contacter", "", "",
+            get("libcategetab") or codes_cds[get("categetab")], get("siret"), "a_contacter", "", "",
         ])
 
     with open(args.sortie, "w", newline="", encoding="utf-8-sig") as f:
