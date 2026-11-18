@@ -12,7 +12,7 @@
 | 2. Recherche sur le top 3 | ✅ |
 | 3. Verdict des experts → une seule idée | ✅ |
 | 4. Validation sur 14 jours (30 entretiens) | ⏳ en cours, voir [`validation/`](validation/) |
-| 5. Offre concierge payante + landing page | — |
+| 5. Offre concierge payante + landing page | ✅ prêtes, voir [`offre/`](offre/) et [`site/`](site/) |
 | 6. MVP | — |
 | 7. Machine d'acquisition | — |
 
@@ -24,3 +24,15 @@
 - [`suivi-entretiens.csv`](validation/suivi-entretiens.csv) : le fichier de suivi, avec `;` comme séparateur (s'ouvre dans Excel).
 - `score_seuils.py` : `python3 validation/score_seuils.py` calcule les 5 seuils et donne la décision.
 - `finess_centres_sante.py` : extrait du fichier FINESS (open data) la liste des centres de santé, avec leur téléphone.
+
+## Dossier `offre/` (étape 5)
+
+- [`01-offre-audit.md`](offre/01-offre-audit.md) : l'offre, le déroulé jour par jour, les exports à demander, le cadre légal, les critères pour passer à l'étape 6.
+- [`02-modele-rapport.md`](offre/02-modele-rapport.md) : le modèle du rapport remis au client.
+- [`03-courriers-reclamation.md`](offre/03-courriers-reclamation.md) : les courriers pour une mutuelle, l'Assurance maladie et un patient.
+- [`04-accord-confidentialite.md`](offre/04-accord-confidentialite.md) : l'accord de confidentialité, à faire relire par un avocat.
+- [`05-bon-de-commande-et-facture.md`](offre/05-bon-de-commande-et-facture.md) : le bon de commande et les mentions obligatoires de la facture.
+
+## Dossier `site/`
+
+- [`index.html`](site/index.html) : la landing page « Encaissé ». Configuration et mise en ligne dans [`site/README.md`](site/README.md).
