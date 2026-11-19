@@ -1,0 +1,24 @@
+﻿priorite;segment;structure;adresse;code_postal;telephone;source;a_verifier
+1;A;Centre de santé dentaire mutualiste;7 square Stalingrad;13001;;santeenfrance.fr;Même adresse que le centre Aqodi : possible groupe mutualiste (segment E)
+1;C;Centre de santé Aqodi;7 square Stalingrad;13001;;lemedecin.fr;Demander qui gère le tiers payant pour l'ensemble des centres
+1;A;Centre de santé dentaire;13 allée Léon Gambetta;13001;04 91 95 07 45;santeenfrance.fr;
+1;A;Centre dentaire Dentali Marseille;2 rue Jean-Baptiste Fortuné Lavastre;13001;;pagesjaunes.fr;Code postal à confirmer
+1;C;CDS polyvalent Cara Santé Canebière;54 La Canebière;13001;;lemedecin.fr;Médecins + dentistes + infirmiers
+1;C;Centre mutualiste de santé Marseille Métropole;rue de Rome;13001;;Le Quotidien du Médecin;Numéro de rue à trouver
+1;A;Centre de santé dentaire;20 rue Caisserie;13002;04 96 11 62 96;santeenfrance.fr;Adresse annoncée avec un code CEDEX 13235
+1;A;Centre de santé dentaire;102 rue de la République;13002;;lemedecin.fr;
+2;A;CDS médico-dentaire des Chartreux;23 avenue des Chartreux;13004;;lemedecin.fr;
+2;A;Centre de santé dentaire;boulevard Sakakini;13005;;bottin.fr;Numéro de rue à trouver
+2;A;Centre de santé dentaire (mutualiste);65 avenue Jules Cantini;13006;04 91 17 40 88;pagesjaunes.fr;
+2;A;CDS dentaire Place Jean Jaurès;52 rue des Trois Mages;13006;;lemedecin.fr;
+2;D;Centre de soins infirmiers;5 chemin des Industrieux;13003;04 91 62 59 07;santeenfrance.fr;
+2;B;Centre médical ophtalmologique Point Vision Marseille;;13008;;lemedecin.fr;Réseau national : possible groupe (segment E)
+3;A;Centre de santé dentaire;152 avenue de Toulon;13010;04 91 23 40 99;santeenfrance.fr;
+3;A;CDS dentaire Pont de Vivaux;159 boulevard Pont de Vivaux;13010;;lemedecin.fr;
+3;A;Centre dentaire Saint-Tronc;249 rue Pierre Doize;13010;;lemedecin.fr;
+3;D;Centre de soins infirmiers;21 chemin de Toulouse;13010;04 91 75 38 42;santeenfrance.fr;
+3;A;Centre de santé dentaire Saint-Marcel;14 rue de Siam;13011;04 91 19 17 00;santeenfrance.fr;
+3;A;Art Dent Clinic La Valentine;117 traverse de la Montre;13011;;pagesjaunes.fr;
+3;C;Centre de santé Paul Paret;quartiers nord;13015;;Le Quotidien du Médecin;"Adresse exacte à trouver ; centre mutualiste historique"
+4;B;Point Vision Aix-en-Provence;240 avenue des Poilus;13100;;lemedecin.fr;Même réseau que Point Vision Marseille
+4;B;Centre ophtalmologique (Vitrolles / Aix);avenue du Maréchal de Lattre de Tassigny;13100;;lemedecin.fr;Ville et adresse à confirmer
